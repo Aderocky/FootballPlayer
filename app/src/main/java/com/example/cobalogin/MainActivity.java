@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvsesi , tvName;
     private Button btnLogout;
     public static String keySPusername = "GtPJAx45lMjkuICbExYElQ==_username";
+    //keytvname
     public static String keySPname = "GtPJAx45lMjkuICbExYElQ==_name";
 
     @Override
