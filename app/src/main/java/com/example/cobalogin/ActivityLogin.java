@@ -42,6 +42,8 @@ public class ActivityLogin extends AppCompatActivity {
                     if(userName.trim().equals("AdeRocky")&& (password.trim().equals("10032003"))){
                         Kl.setPref(ActivityLogin.this , MainActivity
                                 .keySPusername,userName);
+                        Kl.setPref(ActivityLogin.this , MainActivity
+                                .keySPname,"Ade Ganteng");
                         startActivity(new Intent(ActivityLogin.this,MainActivity.class));
                         finish();
                     }
