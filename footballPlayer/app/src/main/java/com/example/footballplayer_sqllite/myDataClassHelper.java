@@ -31,7 +31,6 @@ public class myDataClassHelper extends SQLiteOpenHelper {
                 Field_Klub + " TEXT)"
 
                 ;
-
         db.execSQL(query);
     }
 
