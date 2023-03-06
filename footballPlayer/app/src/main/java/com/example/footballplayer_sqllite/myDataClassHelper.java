@@ -1,0 +1,42 @@
+package com.example.footballplayer_sqllite;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import androidx.annotation.Nullable;
+
+public class myDataClassHelper extends SQLiteOpenHelper {
+    private Context ctx;
+    private static final String DataBase_Name = "db_football";
+    private static final int DataBase_Version = 1;
+    private static final String Table_Name="tbl_player";
+    private static final String Field_Id="id";
+    private static final String Field_Name="nama";
+    private static final String Field_Nomor="nomor";
+    private static final String Field_Klub="klub";
+
+    public myDataClassHelper(@Nullable Context context) {
+        super(context, DataBase_Name, null, DataBase_Version);
+        this.ctx = context;
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+
+        String query = "CREATE TABLE " + Table_Name + " (" +
+                Field_Id + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                Field_Name + " VARCHAR(50), " +
+                Field_Nomor + " INTEGER(2)," +
+                Field_Klub + " TEXT)"
+
+                ;
+
+        db.execSQL(query);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
+    }
+}

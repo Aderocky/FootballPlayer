@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballPlayer_SqlLite">
         <activity
+            android:name=".ubahActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TambahActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
