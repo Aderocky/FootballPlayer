@@ -51,6 +51,5 @@ public class myDataClassHelper extends SQLiteOpenHelper {
 
         long eksekusi = DB.insert(Table_Name, null , cv);
         return eksekusi;
-
     }
 }
