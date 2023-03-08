@@ -1,10 +1,13 @@
 package com.example.footballplayer_sqllite;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class myDataClassHelper extends SQLiteOpenHelper {
     private Context ctx;
@@ -23,19 +26,31 @@ public class myDataClassHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         String query = "CREATE TABLE " + Table_Name + " (" +
                 Field_Id + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 Field_Name + " VARCHAR(50), " +
                 Field_Nomor + " INTEGER(2)," +
                 Field_Klub + " TEXT)"
-
                 ;
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        String query = "Drop Table If Exists " + Table_Name;
+        sqLiteDatabase.execSQL(query);
+        onCreate(sqLiteDatabase);
+    }
+    public long tambahPlayer (String name , String nomor , String klub){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(Field_Name, name );
+        cv.put(Field_Nomor, nomor);
+        cv.put(Field_Klub,klub);
+
+        long eksekusi = DB.insert(Table_Name, null , cv);
+        return eksekusi;
 
     }
 }

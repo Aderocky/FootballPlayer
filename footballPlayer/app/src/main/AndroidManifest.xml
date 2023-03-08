@@ -11,9 +11,11 @@
         android:theme="@style/Theme.FootballPlayer_SqlLite">
         <activity
             android:name=".ubahActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".TambahActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
