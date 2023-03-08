@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class TambahActivity extends AppCompatActivity {
 
-    private EditText et_nama , et_nomor , et_klub;
+    private EditText et_nama, et_nomor, et_klub;
     private Button btnTambah;
     myDataClassHelper db = new myDataClassHelper(TambahActivity.this);
 
@@ -28,29 +28,25 @@ public class TambahActivity extends AppCompatActivity {
         btnTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nama , nomor,klub;
+                String nama, nomor, klub;
 
                 nama = et_nama.getText().toString();
                 nomor = et_nomor.getText().toString();
                 klub = et_klub.getText().toString();
 
-                if (nama.trim().equals("")){
+                if (nama.trim().equals("")) {
                     et_nama.setError("nama tidak boleh kosong");
-                }
-                else if (nomor.trim().equals("")){
+                } else if (nomor.trim().equals("")) {
                     et_nomor.setError("nomor tidak boleh kosong");
-                }
-                else if (klub.trim().equals("")){
+                } else if (klub.trim().equals("")) {
                     et_klub.setError("nama klub tidak boleh kosong");
-                }
-                else {
-                    long ex = db.tambahPlayer(nama,nomor,klub);
-                    if (ex == -1){
-                        Toast.makeText(TambahActivity.this , "gagal menambah data",Toast.LENGTH_SHORT).show();
+                } else {
+                    long ex = db.tambahPlayer(nama, nomor, klub);
+                    if (ex == -1) {
+                        Toast.makeText(TambahActivity.this, "gagal menambah data", Toast.LENGTH_SHORT).show();
                         et_nama.requestFocus();
-                    }
-                    else{
-                        Toast.makeText(TambahActivity.this,"berhasil menambah data" , Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(TambahActivity.this, "berhasil menambah data", Toast.LENGTH_LONG).show();
                         finish();
                     }
                 }
