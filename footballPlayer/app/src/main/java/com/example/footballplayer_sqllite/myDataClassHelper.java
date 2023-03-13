@@ -2,6 +2,7 @@ package com.example.footballplayer_sqllite;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -51,5 +52,15 @@ public class myDataClassHelper extends SQLiteOpenHelper {
 
         long eksekusi = DB.insert(Table_Name, null , cv);
         return eksekusi;
+    }
+    public Cursor bacadataPlayer (){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + Table_Name;
+
+        Cursor varCursor = null;
+        if(db != null){
+            varCursor = db.rawQuery(query , null);
+        }
+        return  varCursor;
     }
 }
